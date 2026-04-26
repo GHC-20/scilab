@@ -1,0 +1,16 @@
+clear;clc;
+
+function y=f(x,sig)
+    y=(1/sqrt(2*%pi.*sig.^2)).*exp(-((x-2).^2)/(2.*sig.^2)).*(x+3);
+endfunction
+sig_values=[1,0.1,0.01];
+x_range=linspace(-1,5,1000);
+
+for i=1:length(sig_values);
+    s=sig_values(i);
+    scf(i)
+    
+    integral_val=intg(2-10*2,2+10*2,list(f,s));
+    disp([s,integral_val])
+    plot(x_range,f(x_range,s))
+end
