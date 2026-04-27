@@ -1,0 +1,9 @@
+clc; clear;
+x = -10:0.1:10;       // Define range
+y = exp(-x.^2);       // Gaussian function (Note the . before ^)
+
+Y = fft(y);           // Fourier Transform
+Y = fftshift(Y);      // Center the zero frequency
+
+subplot(2,1,1); plot(y); title("Time Domain: Gaussian");
+subplot(2,1,2); plot(abs(Y)); title("Frequency Domain: FFT Magnitude");
