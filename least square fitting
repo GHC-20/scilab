@@ -1,0 +1,11 @@
+clc;clear;
+x = [1, 2, 3, 4, 5];
+y = [2, 4, 6, 8, 10];
+n = length(x);
+
+m = (n*sum(x.*y) - sum(x)*sum(y)) / (n*sum(x.^2) - sum(x)^2);
+c = (sum(y) - m*sum(x)) / n;
+
+disp([m, c]) // Output m and c
+plot(x, y, 'rs') // Plot data points as red squares
+plot(x, m*x + c) // Plot the best-fit line
