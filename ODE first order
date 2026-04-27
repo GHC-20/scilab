@@ -1,0 +1,12 @@
+function dydx = f1(x, y)
+    dydx = exp(-x);
+endfunction
+
+x0 = 0;      
+y0 = 0;      
+x = 0:0.1:5; 
+
+y = ode(y0, x0, x, f1);
+
+plot(x, y, 'r');
+xtitle("Solution of dy/dx = exp(-x)", "x", "y");
