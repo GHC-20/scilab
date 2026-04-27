@@ -1,0 +1,12 @@
+// 1. Define the math: y(1) is y, y(2) is dy/dt
+function dz = f(t, y)
+    dz = [y(2); -2*y(2) - y(1)]; 
+endfunction
+
+// 2. Define conditions and solve
+t = 0:0.1:10;
+sol = ode([1; 0], 0, t, f); // [Initial y; Initial dy/dt], start_t, range, function
+
+// 3. Plot only the first row (the values of y)
+plot(t, sol(1,:));
+xtitle("Simple 2nd Order ODE");
