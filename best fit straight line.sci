@@ -1,0 +1,18 @@
+x = [1 2 3 4 5];
+y = [2 4 5 4 5];
+n = length(x);
+sum_x = sum(x);
+sum_y = sum(y);
+sum_xy = sum(x .* y);
+sum_x2 = sum(x .* x);
+m = (n*sum_xy - sum_x*sum_y) / (n*sum_x2 - sum_x^2);
+c = (sum_y - m*sum_x) / n;
+disp("Slope (m) = ", m);
+disp("Intercept (c) = ", c);
+y_fit = m*x + c;
+plot(x, y, 'ro'); 
+plot(x, y_fit, 'b-');
+legend("Data Points", "Best Fit Line");
+residuals = y - y_fit;
+SSE = sum(residuals.^2);
+disp("Sum of Squared Errors (SSE) = ", SSE);
